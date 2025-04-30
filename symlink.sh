@@ -25,3 +25,6 @@ create_symlink() {
   ln -sf "$target" "$link_name"
 }
 
+create_symlink "$DOTFILES_DIR/hypr" "$CONFIG_DIR/hypr"
+create_symlink "$DOTFILES_DIR/nvim" "$CONFIG_DIR/nvim"
+create_symlink "$DOTFILES_DIR/kitty" "$CONFIG_DIR/kitty"
