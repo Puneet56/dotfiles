@@ -25,6 +25,8 @@ create_symlink() {
   ln -sf "$target" "$link_name"
 }
 
+create_symlink "$DOTFILES_DIR/scripts" "$HOME/scripts"
+
 create_symlink "$DOTFILES_DIR/hypr" "$CONFIG_DIR/hypr"
 
 create_symlink "$DOTFILES_DIR/waybar" "$CONFIG_DIR/waybar"
@@ -33,4 +35,9 @@ create_symlink "$DOTFILES_DIR/nvim" "$CONFIG_DIR/nvim"
 
 create_symlink "$DOTFILES_DIR/kitty" "$CONFIG_DIR/kitty"
 
+create_symlink "$DOTFILES_DIR/keyd" "$CONFIG_DIR/keyd"
+
 create_symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+
+create_symlink "$DOTFILES_DIR/tmux/.tmux/.tmux.conf" "$HOME/.tmux.conf"
+create_symlink "$DOTFILES_DIR/tmux/.tmux/.tmux.conf.local" "$HOME/.tmux.conf.local"

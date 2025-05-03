@@ -22,6 +22,16 @@ return {
         ["H"] = { "actions.toggle_hidden", mode = "n" },
         ["g\\"] = { "actions.toggle_trash", mode = "n" },
       },
+      view_options = {
+        is_hidden_file = function(name, bufnr)
+          if name == ".zshrc" or ".tmux" then
+            return false
+          end
+
+          local m = name:match("^%.")
+          return m ~= nil
+        end,
+      },
     },
     -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
