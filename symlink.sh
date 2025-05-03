@@ -26,5 +26,11 @@ create_symlink() {
 }
 
 create_symlink "$DOTFILES_DIR/hypr" "$CONFIG_DIR/hypr"
+
+create_symlink "$DOTFILES_DIR/waybar" "$CONFIG_DIR/waybar"
+
 create_symlink "$DOTFILES_DIR/nvim" "$CONFIG_DIR/nvim"
+
 create_symlink "$DOTFILES_DIR/kitty" "$CONFIG_DIR/kitty"
+
+create_symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
