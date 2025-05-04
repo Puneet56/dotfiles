@@ -70,6 +70,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 alias tmux='tmux -u'
+alias tmx='~/scripts/tmux-sessionizer.sh'
 
 # Shell integrations
 eval "$(fzf --zsh)"

@@ -1,0 +1,5 @@
+
+keyd -> /etc/keyd/default.conf
+
+libinput -> /etc/libinput/local-overrides.quirks -> https://linuxtouchpad.org/libinput/2022/05/07/disable-while-typing.html
+
