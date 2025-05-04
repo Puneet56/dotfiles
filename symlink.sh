@@ -39,5 +39,5 @@ create_symlink "$DOTFILES_DIR/keyd" "$CONFIG_DIR/keyd"
 
 create_symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 
-create_symlink "$DOTFILES_DIR/tmux/.tmux/.tmux.conf" "$HOME/.tmux.conf"
-create_symlink "$DOTFILES_DIR/tmux/.tmux/.tmux.conf.local" "$HOME/.tmux.conf.local"
+create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+create_symlink "$DOTFILES_DIR/tmux/.tmux.conf.local" "$HOME/.tmux.conf.local"
