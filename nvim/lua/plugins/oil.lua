@@ -24,7 +24,7 @@ return {
       },
       view_options = {
         is_hidden_file = function(name, bufnr)
-          if name == ".zshrc" or ".tmux" then
+          if name:match(".zshrc") or name:match("^%.tmux") then
             return false
           end
 

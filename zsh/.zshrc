@@ -1,6 +1,7 @@
 export STARSHIP_CONFIG=$HOME/dotfiles/zsh/starship.toml
 eval "$(starship init zsh)"
 
+
 # Function to add a directory to PATH
 add_to_path() {
   local dir="$1"
