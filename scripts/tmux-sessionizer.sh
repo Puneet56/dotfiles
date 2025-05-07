@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(fd . ~/ ~/projects/ --min-depth 1 --max-depth 1 --type d | fzf)
+  selected=$(fd . ~/ ~/projects/ ~/software/ --min-depth 1 --max-depth 1 --type d | fzf)
 fi
 
 # Exit if no selection is made

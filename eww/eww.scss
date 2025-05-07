@@ -1,0 +1,40 @@
+.volume-brightness-window {
+  background-color: #2e3440; /* Example background color */
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.volume-brightness-container {
+  padding: 5px;
+}
+
+.volume-control,
+.brightness-control {
+  margin-bottom: 5px;
+}
+
+scale trough {
+  all: unset;
+  background-color: #4c566a; /* Trough color */
+  border-radius: 5px;
+  min-height: 8px; /* Adjust height as needed */
+}
+
+scale highlight {
+  all: unset;
+  background-color: #a3be8c; /* Highlight (filled) color */
+  border-radius: 5px;
+}
+
+scale slider {
+  all: unset;
+  background-color: #eceff4; /* Slider handle color */
+  border-radius: 50%;
+  min-width: 100px; /* Adjust size as needed */
+  min-height: 12px;
+}
+
+label {
+  color: #d8dee9; /* Icon color */
+  font-size: 16px;
+}

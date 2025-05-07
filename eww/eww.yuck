@@ -1,0 +1,52 @@
+(defpoll current_volume :interval "1s"
+  "pactl get-sink-volume @DEFAULT_SINK@ | grep 'Volume:' | head -n 1 | awk '{print $5}' | sed 's/%//'")
+
+(defpoll current_brightness :interval "1s"
+  "brightnessctl get")
+
+(defpoll max_brightness :interval "10s"
+  "brightnessctl max")
+
+(defwidget volume_brightness_widget []
+  (box :orientation "v"
+       :space-evenly false
+       :spacing 10
+       :class "volume-brightness-container"
+
+    ;; Volume control
+    (box :orientation "h"
+         :space-evenly false
+         :spacing 5
+         :class "volume-control"
+      (label :text "🔊") ;; Volume icon
+      (scale :min 0
+             :max 100
+             :value current_volume
+             :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
+    )
+
+    ;; Brightness control
+    (box :orientation "h"
+         :space-evenly false
+         :spacing 5
+         :class "brightness-control"
+      (label :text "☀️") ;; Brightness icon
+      (scale :min 0
+             :max max_brightness
+             :value current_brightness
+             :onchange "brightnessctl -s set {}")
+    )
+  )
+)
+
+(defwindow volume_brightness_window
+  :monitor 0
+  :geometry (geometry :x "10px"
+                      :y "10px"
+                      :width "200px"
+                      :height "100px"
+                      :anchor "top left")
+  :wm-ignore false
+  :class "volume-brightness-window"
+  (volume_brightness_widget)
+)

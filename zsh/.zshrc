@@ -83,3 +83,10 @@ add_to_path "$HOME/scripts"
 
 # rust cargo
 . "$HOME/.cargo/env"
+
+# bun completions
+[ -s "/home/puneet/.bun/_bun" ] && source "/home/puneet/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
