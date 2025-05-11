@@ -1,12 +1,48 @@
+/* Tokyo Night */
+@define-color background #1a1b26;
+@define-color background-light #24283b;
+@define-color foreground #c0caf5;
+@define-color black #15161e;
+@define-color red #f7768e;
+@define-color green #9ece6a;
+@define-color yellow #e0af68;
+@define-color blue #7aa2f7;
+@define-color magenta #bb9af7;
+@define-color cyan #7dcfff;
+@define-color white #a9b1d6;
+@define-color orange #ff9e64;
+
+/* Modules */
+@define-color bg @background;
+@define-color fg @foreground;
+@define-color ws-active-bg @foreground;
+@define-color ws-active-fg @black;
+@define-color ws-focused-bg @foreground;
+@define-color ws-focused-fg @black;
+@define-color window-bg @orange;
+@define-color window-fg @black;
+@define-color audio-bg @blue;
+@define-color audio-fg @black;
+@define-color tray-bg rgba(0,0,0,0);
+@define-color network-bg @magenta;
+@define-color network-fg @black;
+@define-color backlight-bg @yellow;
+@define-color backlight-fg @black;
+@define-color battery-bg @green;
+@define-color battery-fg @black;
+@define-color clock-bg @cyan;
+@define-color clock-bg @black;
+
+
 * {
-    font-family: 'Source Code Pro', 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
-    font-size: 11px;
+    font-family: "Source Code Pro";
+    font-size: 12px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    background-color: @bg;
+    color: @fg;
+    border-bottom: none;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -15,22 +51,8 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
+window#waybar > box {
+    padding: 4px;
 }
 
 button {
@@ -47,28 +69,35 @@ button:hover {
     box-shadow: inset 0 -3px #ffffff;
 }
 
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
-    background-color: #a37800;
-}
-
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 10px;
     background-color: transparent;
-    color: #ffffff;
+    border-radius: 4px;
+    color: @fg;
+    border-radius: 4px;
 }
 
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+#workspaces button.active {
+    background-color: @ws-active-bg;
+    color: @ws-active-fg;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @ws-focused-bg;
+    color: @ws-focused-fg;
+}
+
+#workspaces button.focused {
+    background-color: @ws-focused-bg;
+    color: @ws-focused-fg;
+}
+
+#workspaces button.urgent {
+    background-color: @green;
 }
 
 #mode {
@@ -94,6 +123,7 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
+    border-radius: 4px;
     color: #ffffff;
 }
 
@@ -113,17 +143,13 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: @clock-bg;
+    color: @clock-fg;
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    background-color: @battery-bg;
+    color: @battery-fg;
 }
 
 @keyframes blink {
@@ -144,97 +170,29 @@ button:hover {
     animation-direction: alternate;
 }
 
-#power-profiles-daemon {
-    padding-right: 15px;
-}
-
-#power-profiles-daemon.performance {
-    background-color: #f53c3c;
-    color: #ffffff;
-}
-
-#power-profiles-daemon.balanced {
-    background-color: #2980b9;
-    color: #ffffff;
-}
-
-#power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-#memory {
-    background-color: #9b59b6;
-}
-
-#disk {
-    background-color: #964B00;
-}
-
 #backlight {
-    background-color: #90b1b1;
+    background-color: @backlight-bg;
+    color: @backlight-fg;
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: @network-bg;
+    color: @network-fg;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: @red;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    background-color: @audio-bg;
+    color: @audio-fg;
 }
 
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
 
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
-}
-
-#wireplumber.muted {
-    background-color: #f53c3c;
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-}
 
 #tray {
-    background-color: #2980b9;
+    background-color: @tray-bg;
 }
 
 #tray > .passive {
@@ -246,81 +204,3 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-	background-color: transparent;
-}
-
-#privacy {
-    padding: 0;
-}
-
-#privacy-item {
-    padding: 0 5px;
-    color: white;
-}
-
-#privacy-item.screenshare {
-    background-color: #cf5700;
-}
-
-#privacy-item.audio-in {
-    background-color: #1ca000;
-}
-
-#privacy-item.audio-out {
-    background-color: #0069d4;
-}

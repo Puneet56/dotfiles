@@ -6,6 +6,9 @@ return {
       scroll = {
         enabled = false,
       },
+      explorer = {
+        enabled = false,
+      },
     },
   },
 }
