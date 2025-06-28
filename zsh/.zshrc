@@ -82,11 +82,13 @@ add_to_path "$HOME/scripts"
 
 
 # rust cargo
-. "$HOME/.cargo/env"
+[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # bun completions
-[ -s "/home/puneet/.bun/_bun" ] && source "/home/puneet/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+source "$HOME/.devrc.zsh"

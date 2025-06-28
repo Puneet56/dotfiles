@@ -1,4 +1,5 @@
 sudo dnf install -y \
+  neovim \
   make \
   cmake \
   hyprland \
@@ -19,4 +20,7 @@ sudo dnf install -y \
   yazi \
   adobe-source-code-pro-fonts \
   slurp \
-  grim
+  grim \
+  zoxide \
+  lazygit \
+  gh
